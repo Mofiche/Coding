@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Zeiterfassung</string>
+    <string name="projekt_laden">Projekt laden</string>
+    <string name="neues_projekt">Neues Projekt</string>
+    <string name="tageszusammenfassung">Tageszusammenfassung</string>
+    <string name="projektzusammenfassung">Projektzusammenfassung</string>
+    <string name="neues_projekt_fenster_bestaetigung">Projekt speichern</string>
+    <string name="NeuesProjekt_NameProjekt">Name</string>
+    <string name="projekt_loeschen">Projekt löschen</string>
+</resources>
