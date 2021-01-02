@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 
 # from apex import amp
 
+data_location = '../../../data_NN'
+
 torch.backends.cudnn.allow_tf32 = True
 torch.backends.cuda.matmul.allow_tf32 = True
 
@@ -35,17 +37,18 @@ class Netz(nn.Module):
         x = F.relu(x)
         x = x.view(-1, 320)
         x = F.relu(self.fc1(x))
-        #x = self.conv_dropout(x)
+        # x = self.conv_dropout(x)
         x = self.fc2(x)
         return F.log_softmax(x)
 
 
 train_data = torch.utils.data.DataLoader(
-    datasets.MNIST('MNIST/data', train=True, download=True, transform=transforms.Compose(
+    datasets.MNIST(data_location + '/MNIST/data', train=True, download=True, transform=transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])), batch_size=1024, shuffle=True, **kwargs)
 
-test_data = torch.utils.data.DataLoader(datasets.MNIST('MNIST/data', train=False, transform=transforms.Compose(
-    [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])), batch_size=1024, shuffle=True, **kwargs)
+test_data = torch.utils.data.DataLoader(
+    datasets.MNIST(data_location + '/MNIST/data', train=False, transform=transforms.Compose(
+        [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])), batch_size=1024, shuffle=True, **kwargs)
 
 model = Netz()
 model = model.cuda()
@@ -97,7 +100,7 @@ def test():
 
     testloss = loss / len(test_data.dataset)
     print("Durchschnitt:", testloss)
-    print('Genauigkeit:', 100. * correct / (6*len(test_data.dataset)), "%")
+    print('Genauigkeit:', 100. * correct / (6 * len(test_data.dataset)), "%")
 
 
 a = []
@@ -106,7 +109,7 @@ for epoch in range(1, 2000):
         start = time.time()
         train(epoch)
         end = time.time()
-        print("Zeit für Berechnung der Epoche:",end - start,"s")
+        print("Zeit für Berechnung der Epoche:", end - start, "s")
         j = 0
         for i in range(len(plot)):
             j += plot[i].item()
@@ -114,5 +117,4 @@ for epoch in range(1, 2000):
         a.append(j / len(plot))
         test()
 plt.plot(plot)
-#plt.show()
-
+# plt.show()
