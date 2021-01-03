@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74f2a1b5-f22e-4fb6-bdfd-2c6a541fb04a" name="Default Changelist" comment="PyCharm">
-      <change afterPath="$PROJECT_DIR$/python/NN/Cat_Dog/test.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/NN/Cat_Dog/Cat_Dog.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/NN/Cat_Dog/Cat_Dog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/NN/Cat_Dog/catdog.pt" beforeDir="false" afterPath="$PROJECT_DIR$/python/NN/Cat_Dog/catdog.pt" afterDir="false" />

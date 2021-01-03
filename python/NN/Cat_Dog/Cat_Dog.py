@@ -46,7 +46,7 @@ for i in range(len(listdir('../../../../data_NN/Cat_Dog/train//'))):
         target_list = []
         print('Loaded Batch {} of {}'.format(len(train_data), int(len(listdir('../../../../data_NN/Cat_Dog/train/')) / batch_size)))
         print('Percentage Done : {:.3f} %'.format(100. * len(train_data) / int(len(listdir('../../../../data_NN/Cat_Dog/train/')) / batch_size)))
-    if len(train_data) == 15:
+    if len(train_data) == 150:
         break
 
 
@@ -147,7 +147,8 @@ def test_own(file):
     plt.imshow(img)
     plt.show()
 
-#for epoch in range(0, 5):
-   # train(epoch)
+#for epoch in range(0, 2):
+    #train(epoch)
 test()
 test_own('test.jpeg')
+test_own('index.jpeg')
